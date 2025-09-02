@@ -50,6 +50,13 @@ chmod +x setup-ssl.sh
 sudo ./setup-ssl.sh
 ```
 
+### 4. Access URLs
+
+- **Dashboard**: `https://servers.conbackend.com:8443` (nginx SSL on port 8443)
+- **Direct Frontend**: `http://your-server-ip:3000`
+- **Direct API**: `http://your-server-ip:3001/api`
+- **Direct WebSocket**: `ws://your-server-ip:3002`
+
 This will:
 - Install Certbot
 - Obtain SSL certificate for `servers.conbackend.com`

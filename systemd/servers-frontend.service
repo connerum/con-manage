@@ -1,0 +1,21 @@
+[Unit]
+Description=Servers Control Panel Frontend
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/home/con-manage/frontend
+Environment=NODE_ENV=production
+Environment=PORT=3000
+ExecStart=/usr/bin/node /home/con-manage/frontend/server.js
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=servers-frontend
+
+[Install]
+WantedBy=multi-user.target

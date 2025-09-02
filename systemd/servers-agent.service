@@ -1,0 +1,23 @@
+[Unit]
+Description=Servers Control Panel Agent
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/home/con-manage/agent
+Environment=NODE_ENV=production
+Environment=SERVER_URL=https://servers.conbackend.com
+Environment=API_KEY=%API_KEY%
+Environment=SERVER_NAME=%H
+ExecStart=/usr/bin/node /home/con-manage/agent/collect.js
+Restart=always
+RestartSec=300
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=servers-agent
+
+[Install]
+WantedBy=multi-user.target

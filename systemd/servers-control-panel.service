@@ -1,0 +1,21 @@
+[Unit]
+Description=Servers Control Panel Backend
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/home/con-manage/backend
+Environment=NODE_ENV=production
+Environment=API_KEY=%API_KEY%
+ExecStart=/usr/bin/node /home/con-manage/backend/server.js
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=servers-control-panel
+
+[Install]
+WantedBy=multi-user.target

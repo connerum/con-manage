@@ -4,8 +4,8 @@ services:
   backend:
     build: ./backend
     ports:
-      - "3001:3001"
-      - "3002:3002"
+      - "8080:3001"
+      - "8081:3002"
     environment:
       - NODE_ENV=production
       - API_KEY=${API_KEY}
@@ -17,7 +17,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "80:80"
+      - "8080:80"
     depends_on:
       - backend
     networks:
